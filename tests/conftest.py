@@ -2,6 +2,7 @@ from pathlib import Path
 from typing import Any
 
 import pytest
+from typer import rich_utils
 
 from evalkit.schemas import AgentResponse
 
@@ -16,6 +17,13 @@ ROUTE_FIXTURES = [
     "guardrail",
     "medical",
 ]
+
+
+@pytest.fixture(autouse=True)
+def plain_typer_errors(monkeypatch: pytest.MonkeyPatch) -> None:
+    """Typer forces ANSI colours in its usage/error panels when GITHUB_ACTIONS, FORCE_COLOR or
+    PY_COLORS is set (read once at import), which breaks message checks in CI; keep them plain."""
+    monkeypatch.setattr(rich_utils, "FORCE_TERMINAL", False)
 
 
 def load_response(name: str) -> AgentResponse:
