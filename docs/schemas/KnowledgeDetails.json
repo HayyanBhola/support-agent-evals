@@ -1,0 +1,160 @@
+{
+  "$defs": {
+    "AnswerType": {
+      "enum": [
+        "llm",
+        "quoted_source",
+        "not_found"
+      ],
+      "title": "AnswerType",
+      "type": "string"
+    },
+    "ChunkUsed": {
+      "additionalProperties": true,
+      "description": "A chunk that went into the LLM prompt (``details.chunks_used``).\n\n``distance`` is a Chroma distance: LOWER = MORE relevant.",
+      "properties": {
+        "id": {
+          "title": "Id",
+          "type": "string"
+        },
+        "text": {
+          "title": "Text",
+          "type": "string"
+        },
+        "source": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Source"
+        },
+        "section": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Section"
+        },
+        "distance": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Distance"
+        }
+      },
+      "required": [
+        "id",
+        "text"
+      ],
+      "title": "ChunkUsed",
+      "type": "object"
+    }
+  },
+  "additionalProperties": true,
+  "description": "``details`` of a knowledge-route response.",
+  "properties": {
+    "question": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Question"
+    },
+    "chunks_used": {
+      "default": [],
+      "items": {
+        "$ref": "#/$defs/ChunkUsed"
+      },
+      "title": "Chunks Used",
+      "type": "array"
+    },
+    "prompt_sent_to_llm": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Prompt Sent To Llm"
+    },
+    "llm_answer": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Llm Answer"
+    },
+    "problems": {
+      "default": [],
+      "items": {},
+      "title": "Problems",
+      "type": "array"
+    },
+    "answer": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Answer"
+    },
+    "answer_type": {
+      "anyOf": [
+        {
+          "$ref": "#/$defs/AnswerType"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null
+    },
+    "llm_error": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Llm Error"
+    }
+  },
+  "title": "KnowledgeDetails",
+  "type": "object"
+}

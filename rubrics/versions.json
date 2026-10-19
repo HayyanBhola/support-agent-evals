@@ -1,0 +1,57 @@
+{
+  "versions": [
+    {
+      "version": 1,
+      "day": 8,
+      "rubric_hash": "daa615a9e40c5f149d9e076b63e7d073f5d45d1d3031a0e0b948348effa59aa1"
+    },
+    {
+      "version": 2,
+      "day": 12,
+      "rubric_hash": "26af257f50c74c781107927b93400c5f9ffba2be801da2771bf54c045b47c5e9",
+      "carry_forward": {
+        "from_hash": "daa615a9e40c5f149d9e076b63e7d073f5d45d1d3031a0e0b948348effa59aa1",
+        "changed_criteria": [
+          "tone"
+        ],
+        "recheck": [
+          "legacy-kb-fragrance",
+          "legacy-kb-vegan",
+          "syn-guardrail-5fa94211",
+          "syn-guardrail-97c48220",
+          "syn-knowledge-0b6223ff",
+          "syn-knowledge-136f40c4",
+          "syn-knowledge-3c6f3843",
+          "syn-knowledge-76b1294b"
+        ],
+        "note": "v2 only removed the third-person / policy-voice fail rule from tone; everything else is presentation (Key rules boxes, How to label, app). A v1 label stays valid under v2, except the tone fails that rested only on voice (recheck), which must be re-saved under v2."
+      }
+    },
+    {
+      "version": 3,
+      "day": 15,
+      "rubric_hash": "0ab86671dbd25d6384032d44e6fc1b90eec5623b19504209b176f2b0c4b9f6ab",
+      "carry_forward": {
+        "from_hash": "26af257f50c74c781107927b93400c5f9ffba2be801da2771bf54c045b47c5e9",
+        "changed_criteria": [
+          "correctness"
+        ],
+        "recheck": [],
+        "note": "Wording clarification only: correctness Key rules now say a product that doesn't exist needs a reply saying we don't carry it, and offering the catalog alone is a fail (the rule the edge cases already implied). The only labeled non-existent-product case, syn-database-2cccc9ee, was relabeled to correctness = fail on Day 15 before this wording; no other label is affected."
+      }
+    },
+    {
+      "version": 4,
+      "day": 16,
+      "rubric_hash": "1332a8be2395ea1d0ced89de2c1680ba6679146430c36ef6f0d76ba37038d6b8",
+      "carry_forward": {
+        "from_hash": "0ab86671dbd25d6384032d44e6fc1b90eec5623b19504209b176f2b0c4b9f6ab",
+        "changed_criteria": [
+          "relevance"
+        ],
+        "recheck": [],
+        "note": "relevance.md wording made explicit (Day 16): a hand-off or not_found is not relevant when the question was answerable or needed information only the customer has; for requests the bot can't or shouldn't answer it is relevant (escalation is scored separately); a reply that neither does what was asked nor refuses it fails; generic policy instead of asking for customer info fails; answering the legitimate part and quietly declining the rest is relevant. Re-check list empty: the rules flag no relevance=pass label except syn-guardrail-89b27698 and syn-guardrail-97c48220, which hayyan reviewed against these rules on 2026-10-15 and kept as pass."
+      }
+    }
+  ]
+}

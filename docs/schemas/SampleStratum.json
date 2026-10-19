@@ -1,0 +1,56 @@
+{
+  "$defs": {
+    "AnswerType": {
+      "enum": [
+        "llm",
+        "quoted_source",
+        "not_found"
+      ],
+      "title": "AnswerType",
+      "type": "string"
+    },
+    "Route": {
+      "enum": [
+        "escalate",
+        "guardrail",
+        "medical",
+        "greeting",
+        "clarify",
+        "database",
+        "knowledge"
+      ],
+      "title": "Route",
+      "type": "string"
+    }
+  },
+  "additionalProperties": false,
+  "description": "The stratum a LabelSample was drawn from.",
+  "properties": {
+    "expected_route": {
+      "anyOf": [
+        {
+          "$ref": "#/$defs/Route"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "answer_type": {
+      "anyOf": [
+        {
+          "$ref": "#/$defs/AnswerType"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    }
+  },
+  "required": [
+    "expected_route",
+    "answer_type"
+  ],
+  "title": "SampleStratum",
+  "type": "object"
+}

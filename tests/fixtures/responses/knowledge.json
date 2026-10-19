@@ -1,0 +1,72 @@
+{
+  "ok": true,
+  "reply": "GlowCare currently ships within the country of operation only. Standard shipping takes 3-5 business days and costs $4.99, or is free on orders over $50, while Express shipping takes 1-2 business days and costs $12.99. Once an order ships, you will receive a tracking number via email.",
+  "conversation_id": null,
+  "new_chat": false,
+  "route": "knowledge",
+  "source": "knowledge_base",
+  "answer_type": "llm",
+  "escalated": false,
+  "escalation": null,
+  "memory": null,
+  "request_id": "0d092e0d-81d5-4394-a8ae-d3bb7bc3f266",
+  "eval_mode": true,
+  "model": "gemini/gemini-3.1-flash-lite",
+  "latency_ms": 1393.0,
+  "reason": "general question -> knowledge base",
+  "intents": [],
+  "details": {
+    "question": "What is your shipping policy?",
+    "chunks_used": [
+      {
+        "id": "shipping_policy.md-3",
+        "text": "GlowCare Shipping Policy > Shipping Destinations\nGlowCare currently ships within the country of operation only for this demo. International shipping is not available in this demo version.",
+        "source": "shipping_policy.md",
+        "section": "GlowCare Shipping Policy > Shipping Destinations",
+        "distance": 0.4719
+      },
+      {
+        "id": "shipping_policy.md-1",
+        "text": "GlowCare Shipping Policy > Shipping Methods and Timeframes\n- Standard Shipping: 3-5 business days, $4.99, free on orders over $50.\n- Express Shipping: 1-2 business days, $12.99.",
+        "source": "shipping_policy.md",
+        "section": "GlowCare Shipping Policy > Shipping Methods and Timeframes",
+        "distance": 0.4989
+      },
+      {
+        "id": "shipping_policy.md-2",
+        "text": "GlowCare Shipping Policy > Order Tracking\nOnce an order ships, the customer receives a tracking number by email. Tracking status can also be checked by providing the order number to support.",
+        "source": "shipping_policy.md",
+        "section": "GlowCare Shipping Policy > Order Tracking",
+        "distance": 0.6067
+      }
+    ],
+    "prompt_sent_to_llm": "Knowledge base excerpts (some may be irrelevant):\n\n[Chunk 1 | source: shipping_policy.md]\nGlowCare Shipping Policy > Shipping Destinations\nGlowCare currently ships within the country of operation only for this demo. International shipping is not available in this demo version.\n\n[Chunk 2 | source: shipping_policy.md]\nGlowCare Shipping Policy > Shipping Methods and Timeframes\n- Standard Shipping: 3-5 business days, $4.99, free on orders over $50.\n- Express Shipping: 1-2 business days, $12.99.\n\n[Chunk 3 | source: shipping_policy.md]\nGlowCare Shipping Policy > Order Tracking\nOnce an order ships, the customer receives a tracking number by email. Tracking status can also be checked by providing the order number to support.\n\nInstructions:\n1. Use only the excerpts that contain the answer to the customer's question. An excerpt can answer a question without using the customer's exact words (e.g. a rule about which countries we ship to answers \"do you sell in France?\"). Ignore excerpts about other topics.\n2. Answer in 1-3 plain sentences using only facts from those excerpts. No greeting, no preamble, no dialogue, no advice that isn't in the excerpts.\n3. Only say a product contains an ingredient or has a feature if an excerpt about THAT product says so. The Ingredients Guide describes ingredients used across all products — it never says which product contains them.\n4. Only if NONE of the excerpts contain the answer, reply with exactly: \"I'm sorry, I don't have that information. A GlowCare team member can help you further.\"\n\nCustomer question: What is your shipping policy?\nAnswer:",
+    "llm_answer": "GlowCare currently ships within the country of operation only. Standard shipping takes 3-5 business days and costs $4.99, or is free on orders over $50, while Express shipping takes 1-2 business days and costs $12.99. Once an order ships, you will receive a tracking number via email.",
+    "problems": [],
+    "answer": "GlowCare currently ships within the country of operation only. Standard shipping takes 3-5 business days and costs $4.99, or is free on orders over $50, while Express shipping takes 1-2 business days and costs $12.99. Once an order ships, you will receive a tracking number via email.",
+    "answer_type": "llm",
+    "llm_error": null
+  },
+  "retrieved_chunks": [
+    {
+      "id": "shipping_policy.md-3",
+      "text": "GlowCare Shipping Policy > Shipping Destinations\nGlowCare currently ships within the country of operation only for this demo. International shipping is not available in this demo version.",
+      "score": 0.4719,
+      "source": "shipping_policy.md"
+    },
+    {
+      "id": "shipping_policy.md-1",
+      "text": "GlowCare Shipping Policy > Shipping Methods and Timeframes\n- Standard Shipping: 3-5 business days, $4.99, free on orders over $50.\n- Express Shipping: 1-2 business days, $12.99.",
+      "score": 0.4989,
+      "source": "shipping_policy.md"
+    },
+    {
+      "id": "shipping_policy.md-2",
+      "text": "GlowCare Shipping Policy > Order Tracking\nOnce an order ships, the customer receives a tracking number by email. Tracking status can also be checked by providing the order number to support.",
+      "score": 0.6067,
+      "source": "shipping_policy.md"
+    }
+  ],
+  "prompt_tokens": 923,
+  "completion_tokens": 72
+}

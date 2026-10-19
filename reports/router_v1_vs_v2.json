@@ -1,0 +1,217 @@
+{
+ "dev": {
+  "routing": [
+   89,
+   89,
+   92
+  ],
+  "by": {
+   "greeting": [
+    8,
+    8,
+    8
+   ],
+   "clarify": [
+    9,
+    9,
+    9
+   ],
+   "database": [
+    11,
+    11,
+    11
+   ],
+   "escalate": [
+    8,
+    8,
+    8
+   ],
+   "knowledge": [
+    39,
+    39,
+    39
+   ],
+   "medical": [
+    6,
+    6,
+    9
+   ],
+   "guardrail": [
+    8,
+    8,
+    8
+   ]
+  },
+  "esc": {
+   "v1": [
+    8,
+    0,
+    0
+   ],
+   "v2": [
+    8,
+    0,
+    0
+   ]
+  },
+  "fixed": [],
+  "regress": []
+ },
+ "holdout": {
+  "routing": [
+   178,
+   218,
+   228
+  ],
+  "by": {
+   "greeting": [
+    5,
+    22,
+    22
+   ],
+   "knowledge": [
+    55,
+    55,
+    57
+   ],
+   "database": [
+    62,
+    62,
+    63
+   ],
+   "guardrail": [
+    13,
+    22,
+    22
+   ],
+   "medical": [
+    7,
+    16,
+    18
+   ],
+   "clarify": [
+    13,
+    13,
+    18
+   ],
+   "escalate": [
+    23,
+    28,
+    28
+   ]
+  },
+  "esc": {
+   "v1": [
+    23,
+    2,
+    5
+   ],
+   "v2": [
+    28,
+    0,
+    0
+   ]
+  },
+  "fixed": [
+   "syn-escalate-6c9ab4a2",
+   "syn-escalate-8366bd0b",
+   "syn-escalate-c8fb6bfc",
+   "syn-escalate-e0c70db0",
+   "syn-escalate-f2fe6cb5",
+   "syn-greeting-096e0d0b",
+   "syn-greeting-0d571eac",
+   "syn-greeting-3c6abc83",
+   "syn-greeting-4170d82e",
+   "syn-greeting-4f2f9cbc",
+   "syn-greeting-5727c93b",
+   "syn-greeting-576f0d0f",
+   "syn-greeting-6bb0cf38",
+   "syn-greeting-8f8d48b6",
+   "syn-greeting-9002614a",
+   "syn-greeting-97c89022",
+   "syn-greeting-9b9832d1",
+   "syn-greeting-bad27b25",
+   "syn-greeting-ccd8369d",
+   "syn-greeting-dc1e0a07",
+   "syn-greeting-e4f69379",
+   "syn-greeting-fa19f4ae",
+   "syn-guardrail-0e22fc2c",
+   "syn-guardrail-2c1cb6f7",
+   "syn-guardrail-3e7d4896",
+   "syn-guardrail-43b50a7e",
+   "syn-guardrail-5931e83e",
+   "syn-guardrail-611ea5af",
+   "syn-guardrail-a0477f7e",
+   "syn-guardrail-b80b9cba",
+   "syn-guardrail-bcb234d4",
+   "syn-medical-1938e47d",
+   "syn-medical-33a65f23",
+   "syn-medical-35667d72",
+   "syn-medical-3778c37a",
+   "syn-medical-86d85f64",
+   "syn-medical-8a05b9f9",
+   "syn-medical-a222783f",
+   "syn-medical-b584b9e4",
+   "syn-medical-bde92835"
+  ],
+  "regress": []
+ },
+ "agent sheet (118)": {
+  "routing": [
+   106,
+   106,
+   106
+  ],
+  "by": {
+   "database": [
+    36,
+    36,
+    36
+   ],
+   "clarify": [
+    7,
+    7,
+    7
+   ],
+   "escalate": [
+    14,
+    14,
+    14
+   ],
+   "knowledge": [
+    37,
+    37,
+    37
+   ],
+   "medical": [
+    5,
+    5,
+    5
+   ],
+   "greeting": [
+    4,
+    4,
+    4
+   ],
+   "guardrail": [
+    3,
+    3,
+    3
+   ]
+  },
+  "esc": {
+   "v1": [
+    0,
+    0,
+    0
+   ],
+   "v2": [
+    0,
+    0,
+    0
+   ]
+  },
+  "fixed": [],
+  "regress": []
+ }
+}

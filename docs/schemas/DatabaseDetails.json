@@ -1,0 +1,96 @@
+{
+  "$defs": {
+    "ProductRecord": {
+      "additionalProperties": true,
+      "description": "One product row from a database-route response.",
+      "properties": {
+        "product_id": {
+          "title": "Product Id",
+          "type": "string"
+        },
+        "name": {
+          "title": "Name",
+          "type": "string"
+        },
+        "price": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Price"
+        },
+        "currency": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Currency"
+        },
+        "stock_quantity": {
+          "anyOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Stock Quantity"
+        },
+        "availability": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Availability"
+        },
+        "ingredients": {
+          "default": [],
+          "items": {
+            "type": "string"
+          },
+          "title": "Ingredients",
+          "type": "array"
+        }
+      },
+      "required": [
+        "product_id",
+        "name"
+      ],
+      "title": "ProductRecord",
+      "type": "object"
+    }
+  },
+  "additionalProperties": true,
+  "description": "``details`` of a database-route response. The agent sends a bare list of products.",
+  "properties": {
+    "products": {
+      "items": {
+        "$ref": "#/$defs/ProductRecord"
+      },
+      "title": "Products",
+      "type": "array"
+    }
+  },
+  "required": [
+    "products"
+  ],
+  "title": "DatabaseDetails",
+  "type": "object"
+}

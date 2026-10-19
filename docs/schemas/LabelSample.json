@@ -1,0 +1,612 @@
+{
+  "$defs": {
+    "AgentResponse": {
+      "additionalProperties": true,
+      "description": "The JSON body returned by the agent's ``POST /chat``.\n\nOnly ``ok`` and ``reply`` are required; every other field is Optional because at least\none route (or the error branch) sends it as null or omits it.",
+      "properties": {
+        "ok": {
+          "title": "Ok",
+          "type": "boolean"
+        },
+        "reply": {
+          "title": "Reply",
+          "type": "string"
+        },
+        "conversation_id": {
+          "anyOf": [
+            {},
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Conversation Id"
+        },
+        "new_chat": {
+          "anyOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "New Chat"
+        },
+        "route": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/Route"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "source": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/ResponseSource"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "answer_type": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/AnswerType"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "escalated": {
+          "anyOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Escalated"
+        },
+        "escalation": {
+          "anyOf": [
+            {},
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Escalation"
+        },
+        "memory": {
+          "anyOf": [
+            {},
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Memory"
+        },
+        "error": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Error"
+        },
+        "request_id": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Request Id"
+        },
+        "eval_mode": {
+          "anyOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Eval Mode"
+        },
+        "model": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Model"
+        },
+        "latency_ms": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Latency Ms"
+        },
+        "reason": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Reason"
+        },
+        "intents": {
+          "anyOf": [
+            {
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Intents"
+        },
+        "details": {
+          "anyOf": [
+            {
+              "additionalProperties": true,
+              "type": "object"
+            },
+            {
+              "items": {},
+              "type": "array"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Details"
+        },
+        "retrieved_chunks": {
+          "anyOf": [
+            {
+              "items": {
+                "$ref": "#/$defs/RetrievedChunk"
+              },
+              "type": "array"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Retrieved Chunks"
+        },
+        "prompt_tokens": {
+          "anyOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Prompt Tokens"
+        },
+        "completion_tokens": {
+          "anyOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Completion Tokens"
+        }
+      },
+      "required": [
+        "ok",
+        "reply"
+      ],
+      "title": "AgentResponse",
+      "type": "object"
+    },
+    "AnswerType": {
+      "enum": [
+        "llm",
+        "quoted_source",
+        "not_found"
+      ],
+      "title": "AnswerType",
+      "type": "string"
+    },
+    "CaseSource": {
+      "enum": [
+        "legacy",
+        "synthetic",
+        "human",
+        "production"
+      ],
+      "title": "CaseSource",
+      "type": "string"
+    },
+    "Difficulty": {
+      "enum": [
+        "easy",
+        "medium",
+        "hard"
+      ],
+      "title": "Difficulty",
+      "type": "string"
+    },
+    "ResponseSource": {
+      "enum": [
+        "database",
+        "knowledge_base",
+        "fixed_reply"
+      ],
+      "title": "ResponseSource",
+      "type": "string"
+    },
+    "RetrievedChunk": {
+      "additionalProperties": true,
+      "description": "A knowledge-base chunk the agent retrieved.\n\n``score`` is a Chroma distance: LOWER score = MORE relevant.",
+      "properties": {
+        "id": {
+          "title": "Id",
+          "type": "string"
+        },
+        "text": {
+          "title": "Text",
+          "type": "string"
+        },
+        "score": {
+          "title": "Score",
+          "type": "number"
+        },
+        "source": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Source"
+        }
+      },
+      "required": [
+        "id",
+        "text",
+        "score"
+      ],
+      "title": "RetrievedChunk",
+      "type": "object"
+    },
+    "Route": {
+      "enum": [
+        "escalate",
+        "guardrail",
+        "medical",
+        "greeting",
+        "clarify",
+        "database",
+        "knowledge"
+      ],
+      "title": "Route",
+      "type": "string"
+    },
+    "SampleStratum": {
+      "additionalProperties": false,
+      "description": "The stratum a LabelSample was drawn from.",
+      "properties": {
+        "expected_route": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/Route"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "answer_type": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/AnswerType"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        }
+      },
+      "required": [
+        "expected_route",
+        "answer_type"
+      ],
+      "title": "SampleStratum",
+      "type": "object"
+    },
+    "TestCase": {
+      "additionalProperties": false,
+      "description": "One evaluation case: a question plus everything we expect of the answer.",
+      "properties": {
+        "schema_version": {
+          "const": 1,
+          "default": 1,
+          "title": "Schema Version",
+          "type": "integer"
+        },
+        "id": {
+          "pattern": "^[a-z0-9][a-z0-9_-]*$",
+          "title": "Id",
+          "type": "string"
+        },
+        "question": {
+          "minLength": 1,
+          "title": "Question",
+          "type": "string"
+        },
+        "category": {
+          "pattern": "^[a-z0-9][a-z0-9_-]*$",
+          "title": "Category",
+          "type": "string"
+        },
+        "expected_route": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/Route"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "should_escalate": {
+          "anyOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Should Escalate"
+        },
+        "history": {
+          "default": [],
+          "items": {
+            "$ref": "#/$defs/Turn"
+          },
+          "title": "History",
+          "type": "array"
+        },
+        "reference_answer": {
+          "anyOf": [
+            {
+              "minLength": 1,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Reference Answer"
+        },
+        "gold_context_ids": {
+          "default": [],
+          "items": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "title": "Gold Context Ids",
+          "type": "array"
+        },
+        "gold_db_facts": {
+          "additionalProperties": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "boolean"
+              },
+              {
+                "type": "integer"
+              },
+              {
+                "type": "number"
+              },
+              {
+                "items": {
+                  "type": "string"
+                },
+                "type": "array"
+              }
+            ]
+          },
+          "default": {},
+          "propertyNames": {
+            "minLength": 1
+          },
+          "title": "Gold Db Facts",
+          "type": "object"
+        },
+        "must_include": {
+          "default": [],
+          "items": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "title": "Must Include",
+          "type": "array"
+        },
+        "must_include_any": {
+          "default": [],
+          "items": {
+            "items": {
+              "minLength": 1,
+              "type": "string"
+            },
+            "minItems": 1,
+            "type": "array"
+          },
+          "title": "Must Include Any",
+          "type": "array"
+        },
+        "must_not_include": {
+          "default": [],
+          "items": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "title": "Must Not Include",
+          "type": "array"
+        },
+        "safety_critical": {
+          "default": false,
+          "title": "Safety Critical",
+          "type": "boolean"
+        },
+        "difficulty": {
+          "$ref": "#/$defs/Difficulty",
+          "default": "medium"
+        },
+        "source": {
+          "$ref": "#/$defs/CaseSource"
+        },
+        "tags": {
+          "default": [],
+          "items": {
+            "pattern": "^[a-z0-9][a-z0-9_-]*$",
+            "type": "string"
+          },
+          "title": "Tags",
+          "type": "array"
+        }
+      },
+      "required": [
+        "id",
+        "question",
+        "category",
+        "expected_route",
+        "source"
+      ],
+      "title": "TestCase",
+      "type": "object"
+    },
+    "Turn": {
+      "additionalProperties": false,
+      "description": "One prior message in a multi-turn case.",
+      "properties": {
+        "role": {
+          "enum": [
+            "user",
+            "assistant"
+          ],
+          "title": "Role",
+          "type": "string"
+        },
+        "content": {
+          "minLength": 1,
+          "title": "Content",
+          "type": "string"
+        }
+      },
+      "required": [
+        "role",
+        "content"
+      ],
+      "title": "Turn",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "description": "One record to label: a case (with its gold fields) and the saved response to judge.",
+  "properties": {
+    "schema_version": {
+      "const": 1,
+      "default": 1,
+      "title": "Schema Version",
+      "type": "integer"
+    },
+    "case_id": {
+      "pattern": "^[a-z0-9][a-z0-9_-]*$",
+      "title": "Case Id",
+      "type": "string"
+    },
+    "run_id": {
+      "pattern": "^[a-z0-9][a-z0-9_-]*$",
+      "title": "Run Id",
+      "type": "string"
+    },
+    "stratum": {
+      "$ref": "#/$defs/SampleStratum"
+    },
+    "case": {
+      "$ref": "#/$defs/TestCase"
+    },
+    "response": {
+      "$ref": "#/$defs/AgentResponse"
+    },
+    "response_sha256": {
+      "pattern": "^[0-9a-f]{64}$",
+      "title": "Response Sha256",
+      "type": "string"
+    }
+  },
+  "required": [
+    "case_id",
+    "run_id",
+    "stratum",
+    "case",
+    "response",
+    "response_sha256"
+  ],
+  "title": "LabelSample",
+  "type": "object"
+}

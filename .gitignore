@@ -1,0 +1,20 @@
+.env
+.env.*
+!.env.example
+.venv/
+__pycache__/
+*.pyc
+.cache/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.hypothesis/
+.coverage
+htmlcov/
+mlruns/
+mlartifacts/
+*.db
+runs/
+.claude/settings.local.json
+# binary Chroma store: re-created by scripts/snapshot_agent.ps1
+agent_snapshot/rag/chroma_store/

@@ -1,0 +1,430 @@
+{
+  "$defs": {
+    "AgentResponse": {
+      "additionalProperties": true,
+      "description": "The JSON body returned by the agent's ``POST /chat``.\n\nOnly ``ok`` and ``reply`` are required; every other field is Optional because at least\none route (or the error branch) sends it as null or omits it.",
+      "properties": {
+        "ok": {
+          "title": "Ok",
+          "type": "boolean"
+        },
+        "reply": {
+          "title": "Reply",
+          "type": "string"
+        },
+        "conversation_id": {
+          "anyOf": [
+            {},
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Conversation Id"
+        },
+        "new_chat": {
+          "anyOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "New Chat"
+        },
+        "route": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/Route"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "source": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/ResponseSource"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "answer_type": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/AnswerType"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "escalated": {
+          "anyOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Escalated"
+        },
+        "escalation": {
+          "anyOf": [
+            {},
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Escalation"
+        },
+        "memory": {
+          "anyOf": [
+            {},
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Memory"
+        },
+        "error": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Error"
+        },
+        "request_id": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Request Id"
+        },
+        "eval_mode": {
+          "anyOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Eval Mode"
+        },
+        "model": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Model"
+        },
+        "latency_ms": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Latency Ms"
+        },
+        "reason": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Reason"
+        },
+        "intents": {
+          "anyOf": [
+            {
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Intents"
+        },
+        "details": {
+          "anyOf": [
+            {
+              "additionalProperties": true,
+              "type": "object"
+            },
+            {
+              "items": {},
+              "type": "array"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Details"
+        },
+        "retrieved_chunks": {
+          "anyOf": [
+            {
+              "items": {
+                "$ref": "#/$defs/RetrievedChunk"
+              },
+              "type": "array"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Retrieved Chunks"
+        },
+        "prompt_tokens": {
+          "anyOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Prompt Tokens"
+        },
+        "completion_tokens": {
+          "anyOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Completion Tokens"
+        }
+      },
+      "required": [
+        "ok",
+        "reply"
+      ],
+      "title": "AgentResponse",
+      "type": "object"
+    },
+    "AnswerType": {
+      "enum": [
+        "llm",
+        "quoted_source",
+        "not_found"
+      ],
+      "title": "AnswerType",
+      "type": "string"
+    },
+    "FailureType": {
+      "enum": [
+        "timeout",
+        "connection",
+        "http_error",
+        "agent_error",
+        "skipped",
+        "parse_error"
+      ],
+      "title": "FailureType",
+      "type": "string"
+    },
+    "ResponseSource": {
+      "enum": [
+        "database",
+        "knowledge_base",
+        "fixed_reply"
+      ],
+      "title": "ResponseSource",
+      "type": "string"
+    },
+    "RetrievedChunk": {
+      "additionalProperties": true,
+      "description": "A knowledge-base chunk the agent retrieved.\n\n``score`` is a Chroma distance: LOWER score = MORE relevant.",
+      "properties": {
+        "id": {
+          "title": "Id",
+          "type": "string"
+        },
+        "text": {
+          "title": "Text",
+          "type": "string"
+        },
+        "score": {
+          "title": "Score",
+          "type": "number"
+        },
+        "source": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Source"
+        }
+      },
+      "required": [
+        "id",
+        "text",
+        "score"
+      ],
+      "title": "RetrievedChunk",
+      "type": "object"
+    },
+    "Route": {
+      "enum": [
+        "escalate",
+        "guardrail",
+        "medical",
+        "greeting",
+        "clarify",
+        "database",
+        "knowledge"
+      ],
+      "title": "Route",
+      "type": "string"
+    }
+  },
+  "additionalProperties": false,
+  "description": "The outcome of sending one TestCase to the agent in one run.\n\nExactly one of ``response`` / ``failure_type`` is set, except ``agent_error``: the agent\nanswered with ``ok: false``, so the response is kept (with ``is_error`` true) as well.",
+  "properties": {
+    "schema_version": {
+      "const": 1,
+      "default": 1,
+      "title": "Schema Version",
+      "type": "integer"
+    },
+    "run_id": {
+      "pattern": "^[a-z0-9][a-z0-9_-]*$",
+      "title": "Run Id",
+      "type": "string"
+    },
+    "case_id": {
+      "pattern": "^[a-z0-9][a-z0-9_-]*$",
+      "title": "Case Id",
+      "type": "string"
+    },
+    "response": {
+      "anyOf": [
+        {
+          "$ref": "#/$defs/AgentResponse"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null
+    },
+    "failure_type": {
+      "anyOf": [
+        {
+          "$ref": "#/$defs/FailureType"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null
+    },
+    "error_message": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Error Message"
+    },
+    "attempts": {
+      "minimum": 0,
+      "title": "Attempts",
+      "type": "integer"
+    },
+    "cache_hit": {
+      "default": false,
+      "title": "Cache Hit",
+      "type": "boolean"
+    },
+    "wall_latency_ms": {
+      "anyOf": [
+        {
+          "minimum": 0,
+          "type": "number"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Wall Latency Ms"
+    },
+    "started_at": {
+      "format": "date-time",
+      "title": "Started At",
+      "type": "string"
+    },
+    "finished_at": {
+      "format": "date-time",
+      "title": "Finished At",
+      "type": "string"
+    }
+  },
+  "required": [
+    "run_id",
+    "case_id",
+    "attempts",
+    "started_at",
+    "finished_at"
+  ],
+  "title": "CaseResult",
+  "type": "object"
+}

@@ -1,0 +1,22 @@
+{
+  "ok": true,
+  "reply": "Of course. I'm passing your conversation to a GlowCare team member, who will follow up with you shortly.",
+  "conversation_id": null,
+  "new_chat": false,
+  "route": "escalate",
+  "source": "fixed_reply",
+  "answer_type": null,
+  "escalated": true,
+  "escalation": null,
+  "memory": null,
+  "request_id": "4bec7613-aecc-4cfc-aa40-ca5e008b7c29",
+  "eval_mode": true,
+  "model": "gemini/gemini-3.1-flash-lite",
+  "latency_ms": 0.1,
+  "reason": "customer asked for a human",
+  "intents": [],
+  "details": null,
+  "retrieved_chunks": null,
+  "prompt_tokens": null,
+  "completion_tokens": null
+}

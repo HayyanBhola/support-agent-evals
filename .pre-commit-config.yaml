@@ -1,0 +1,22 @@
+# Hooks run through `uv run` so they use the versions pinned in uv.lock.
+# agent_snapshot/ is a byte-exact copy of the agent repo: hooks must never touch it.
+exclude: ^agent_snapshot/
+repos:
+  - repo: local
+    hooks:
+      - id: ruff-lint
+        name: ruff lint
+        entry: uv run ruff check --fix
+        language: system
+        types: [python]
+      - id: ruff-format
+        name: ruff format
+        entry: uv run ruff format
+        language: system
+        types: [python]
+      - id: mypy
+        name: mypy
+        entry: uv run mypy
+        language: system
+        types: [python]
+        pass_filenames: false

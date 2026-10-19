@@ -1,0 +1,20 @@
+{
+  "ok": false,
+  "reply": "[hand-made fixture] ERROR_REPLY text was not captured from the agent",
+  "conversation_id": null,
+  "new_chat": false,
+  "route": null,
+  "escalated": false,
+  "escalation": null,
+  "error": "TimeoutError: simulated",
+  "request_id": "handmade-error-fixture",
+  "model": "gemini/gemini-3.1-flash-lite",
+  "eval_mode": true,
+  "latency_ms": 30000.0,
+  "reason": null,
+  "intents": null,
+  "details": null,
+  "retrieved_chunks": null,
+  "prompt_tokens": null,
+  "completion_tokens": null
+}

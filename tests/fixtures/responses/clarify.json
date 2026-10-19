@@ -1,0 +1,24 @@
+{
+  "ok": true,
+  "reply": "Could you share your order number? It looks like GC10241 and is in your confirmation email.",
+  "conversation_id": null,
+  "new_chat": false,
+  "route": "clarify",
+  "source": "fixed_reply",
+  "answer_type": null,
+  "escalated": false,
+  "escalation": null,
+  "memory": null,
+  "request_id": "70b5171b-a2fb-4ac8-9a71-15ea5e3ad402",
+  "eval_mode": true,
+  "model": "gemini/gemini-3.1-flash-lite",
+  "latency_ms": 0.3,
+  "reason": "order status asked without an order ID",
+  "intents": [
+    "order_status"
+  ],
+  "details": null,
+  "retrieved_chunks": null,
+  "prompt_tokens": null,
+  "completion_tokens": null
+}

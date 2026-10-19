@@ -1,0 +1,4 @@
+# Keep LF in the repo and working tree (fixtures, JSONL and schema files are compared byte-wise).
+* text=auto eol=lf
+# agent_snapshot/ is a byte-exact copy of the agent repo (CRLF files): never normalize it.
+agent_snapshot/** -text

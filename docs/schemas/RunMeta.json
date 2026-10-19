@@ -1,0 +1,172 @@
+{
+  "$defs": {
+    "RunCounts": {
+      "additionalProperties": false,
+      "properties": {
+        "total": {
+          "minimum": 0,
+          "title": "Total",
+          "type": "integer"
+        },
+        "ok": {
+          "minimum": 0,
+          "title": "Ok",
+          "type": "integer"
+        },
+        "failed": {
+          "minimum": 0,
+          "title": "Failed",
+          "type": "integer"
+        },
+        "cache_hits": {
+          "minimum": 0,
+          "title": "Cache Hits",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "total",
+        "ok",
+        "failed",
+        "cache_hits"
+      ],
+      "title": "RunCounts",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "description": "Everything needed to reproduce and compare a run.",
+  "properties": {
+    "schema_version": {
+      "const": 1,
+      "default": 1,
+      "title": "Schema Version",
+      "type": "integer"
+    },
+    "run_id": {
+      "pattern": "^[a-z0-9][a-z0-9_-]*$",
+      "title": "Run Id",
+      "type": "string"
+    },
+    "git_sha": {
+      "anyOf": [
+        {
+          "pattern": "^[0-9a-f]{7,40}$",
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Git Sha"
+    },
+    "git_dirty": {
+      "title": "Git Dirty",
+      "type": "boolean"
+    },
+    "dataset_path": {
+      "minLength": 1,
+      "title": "Dataset Path",
+      "type": "string"
+    },
+    "dataset_sha256": {
+      "pattern": "^[0-9a-f]{64}$",
+      "title": "Dataset Sha256",
+      "type": "string"
+    },
+    "dataset_version": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Dataset Version"
+    },
+    "judge_versions": {
+      "additionalProperties": {
+        "type": "string"
+      },
+      "default": {},
+      "title": "Judge Versions",
+      "type": "object"
+    },
+    "config_hash": {
+      "pattern": "^[0-9a-f]{64}$",
+      "title": "Config Hash",
+      "type": "string"
+    },
+    "agent_model": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Agent Model"
+    },
+    "agent_health": {
+      "additionalProperties": true,
+      "default": {},
+      "title": "Agent Health",
+      "type": "object"
+    },
+    "agent_repo": {
+      "additionalProperties": true,
+      "default": {},
+      "title": "Agent Repo",
+      "type": "object"
+    },
+    "run_settings": {
+      "additionalProperties": true,
+      "default": {},
+      "title": "Run Settings",
+      "type": "object"
+    },
+    "concurrency": {
+      "minimum": 1,
+      "title": "Concurrency",
+      "type": "integer"
+    },
+    "started_at": {
+      "format": "date-time",
+      "title": "Started At",
+      "type": "string"
+    },
+    "finished_at": {
+      "anyOf": [
+        {
+          "format": "date-time",
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Finished At"
+    },
+    "counts": {
+      "$ref": "#/$defs/RunCounts"
+    }
+  },
+  "required": [
+    "run_id",
+    "git_sha",
+    "git_dirty",
+    "dataset_path",
+    "dataset_sha256",
+    "config_hash",
+    "concurrency",
+    "started_at",
+    "counts"
+  ],
+  "title": "RunMeta",
+  "type": "object"
+}

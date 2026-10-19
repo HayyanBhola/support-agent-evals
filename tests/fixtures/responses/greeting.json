@@ -1,0 +1,22 @@
+{
+  "ok": true,
+  "reply": "Hi! I'm the GlowCare assistant. I can help with our products, prices, stock, your orders, and our shipping, return and refund policies. What can I help you with?",
+  "conversation_id": null,
+  "new_chat": false,
+  "route": "greeting",
+  "source": "fixed_reply",
+  "answer_type": null,
+  "escalated": false,
+  "escalation": null,
+  "memory": null,
+  "request_id": "a8bdbc3b-bccd-49d5-b96a-0c823d725f5c",
+  "eval_mode": true,
+  "model": "gemini/gemini-3.1-flash-lite",
+  "latency_ms": 0.1,
+  "reason": "greeting / small talk",
+  "intents": [],
+  "details": null,
+  "retrieved_chunks": null,
+  "prompt_tokens": null,
+  "completion_tokens": null
+}

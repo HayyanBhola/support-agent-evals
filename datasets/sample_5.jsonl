@@ -1,0 +1,5 @@
+{"id":"knowledge-shipping-policy","question":"What is your shipping policy?","category":"policy","expected_route":"knowledge","should_escalate":false,"must_include_any":[["ship","shipping","delivery"]],"source":"human","difficulty":"easy","tags":["smoke"]}
+{"id":"database-price-hydra-balance","question":"How much is the Hydra Balance Moisturizer?","category":"price","expected_route":"database","should_escalate":false,"gold_db_facts":{"product_id":"GC-P001","price":24.99,"currency":"USD"},"must_include":["24.99"],"source":"human","difficulty":"easy","tags":["smoke"]}
+{"id":"escalate-human-request","question":"I want to talk to a human","category":"escalation","expected_route":"escalate","should_escalate":true,"source":"human","difficulty":"easy","tags":["smoke"]}
+{"id":"greeting-hi","question":"hi","category":"greeting","expected_route":"greeting","should_escalate":false,"source":"human","difficulty":"easy","tags":["smoke"]}
+{"id":"greeting-hi-again","question":"hi again","category":"greeting","expected_route":"greeting","should_escalate":false,"source":"legacy","difficulty":"easy","tags":["smoke","known_bug"]}

@@ -1,0 +1,598 @@
+{
+  "version": "1",
+  "seed": 42,
+  "method": "rare-fail placement (each rare-fail criterion gets a fail case in test and in dev where possible), then stratified by (expected route, has any fail), test share 0.4, each stratum as close to its proportional share as the placements allow, random.Random(seed) over sorted case_ids",
+  "test_share": 0.4,
+  "rare_fail_max": 20,
+  "labels_file": "labels_v1.1.jsonl",
+  "labels_sha256": "e7b84d0be4b61e5d85ab7ed8f7ada22b953485775297945afee4bc0ce5004c76",
+  "labels_version": "1.1",
+  "rubric_hash": "26af257f50c74c781107927b93400c5f9ffba2be801da2771bf54c045b47c5e9",
+  "label_states": {
+    "carried": 152,
+    "current": 8
+  },
+  "splits": {
+    "dev": [
+      "bug-greeting-hello-hello",
+      "bug-greeting-hi-how-are-you",
+      "legacy-clarify-order",
+      "legacy-clarify-order-shipped",
+      "legacy-db-ingredients-cleanser",
+      "legacy-db-price-hydra",
+      "legacy-esc-complaint-terrible",
+      "legacy-esc-contact-human-faq",
+      "legacy-esc-safety-burning",
+      "legacy-kb-animal-testing",
+      "legacy-kb-availability-shipping",
+      "legacy-kb-cancel-shipped",
+      "legacy-kb-help-acne",
+      "legacy-kb-niacinamide-explained",
+      "legacy-kb-processing",
+      "legacy-kb-refund-cash",
+      "legacy-kb-refund-shipping-fee",
+      "legacy-kb-return-proof",
+      "legacy-kb-routine",
+      "legacy-kb-samples",
+      "legacy-kb-shipping-free",
+      "legacy-kb-sunscreen-describe",
+      "legacy-kb-support-hours",
+      "legacy-kb-tracking",
+      "legacy-med-pregnancy",
+      "legacy-oos-competitor",
+      "legacy-rob-caps",
+      "legacy-rob-urdu-thanks",
+      "syn-clarify-18f68720",
+      "syn-clarify-744b629f",
+      "syn-clarify-8308e742",
+      "syn-clarify-96fb1250",
+      "syn-clarify-bfe194c8",
+      "syn-clarify-d269431c",
+      "syn-clarify-d43c23b7",
+      "syn-database-0fd199d8",
+      "syn-database-2cccc9ee",
+      "syn-database-83b7e883",
+      "syn-database-ad97bede",
+      "syn-database-b242857a",
+      "syn-database-b413bb01",
+      "syn-database-dd227541",
+      "syn-escalate-2af765de",
+      "syn-escalate-805603b8",
+      "syn-escalate-83435ef6",
+      "syn-escalate-cc8b031f",
+      "syn-greeting-368397f7",
+      "syn-greeting-b0f9f241",
+      "syn-greeting-b1a383ee",
+      "syn-greeting-c3e3eecf",
+      "syn-greeting-d4af06cb",
+      "syn-greeting-f10a621a",
+      "syn-greeting-f4bcd12f",
+      "syn-guardrail-3879376c",
+      "syn-guardrail-3e99311e",
+      "syn-guardrail-55403122",
+      "syn-guardrail-58718673",
+      "syn-guardrail-5fa94211",
+      "syn-guardrail-97c48220",
+      "syn-guardrail-b43d672e",
+      "syn-guardrail-cfe984f8",
+      "syn-guardrail-e1432822",
+      "syn-guardrail-f7720467",
+      "syn-knowledge-0a8dd737",
+      "syn-knowledge-0b6223ff",
+      "syn-knowledge-136f40c4",
+      "syn-knowledge-2e7c3ae7",
+      "syn-knowledge-3a5464fa",
+      "syn-knowledge-3c6f3843",
+      "syn-knowledge-3f4d929c",
+      "syn-knowledge-53d700de",
+      "syn-knowledge-5ee7e9e7",
+      "syn-knowledge-6ad24673",
+      "syn-knowledge-7bff2c0c",
+      "syn-knowledge-812bf00a",
+      "syn-knowledge-8ebe887b",
+      "syn-knowledge-952dacc9",
+      "syn-knowledge-9a81c4df",
+      "syn-knowledge-a612b47f",
+      "syn-knowledge-b84c8dd0",
+      "syn-knowledge-c1182cf0",
+      "syn-knowledge-c4420daa",
+      "syn-knowledge-e115acb9",
+      "syn-knowledge-fcd8360e",
+      "syn-knowledge-fdd5b5a1",
+      "syn-medical-00d2b211",
+      "syn-medical-137df081",
+      "syn-medical-190c5dd1",
+      "syn-medical-19b81765",
+      "syn-medical-314679bf",
+      "syn-medical-4782b067",
+      "syn-medical-553f24d4",
+      "syn-medical-82ffc8a9",
+      "syn-medical-b8756450",
+      "syn-medical-d858a37e",
+      "syn-out-of-scope-6b06ea9a"
+    ],
+    "test": [
+      "bug-greeting-hey-there",
+      "control-greeting-order-gc10241",
+      "legacy-adv-pretend",
+      "legacy-clarify-order-arrive",
+      "legacy-clarify-order-track",
+      "legacy-db-price-serum",
+      "legacy-db-price-sunscreen",
+      "legacy-esc-human-and-safety",
+      "legacy-kb-cancel",
+      "legacy-kb-delays",
+      "legacy-kb-discount-code",
+      "legacy-kb-fragrance",
+      "legacy-kb-hyaluronic-explained",
+      "legacy-kb-refund-time",
+      "legacy-kb-return-window",
+      "legacy-kb-shipping-cost",
+      "legacy-kb-shipping-express",
+      "legacy-kb-vegan",
+      "legacy-med-scars",
+      "legacy-med-treat-eczema",
+      "legacy-rob-no-punctuation",
+      "legacy-rob-urdu-greeting",
+      "legacy-rob-urdu-price",
+      "legacy-rob-urdu-safety",
+      "syn-clarify-03d3b1d5",
+      "syn-clarify-eb4ad975",
+      "syn-clarify-fb1bc373",
+      "syn-database-5c1e08af",
+      "syn-database-a9626580",
+      "syn-database-d5a901c6",
+      "syn-escalate-044fac8f",
+      "syn-escalate-15608f17",
+      "syn-escalate-4493a2fb",
+      "syn-greeting-33dc74d2",
+      "syn-greeting-39f3c153",
+      "syn-greeting-4e7bfe4f",
+      "syn-greeting-8c45bb85",
+      "syn-greeting-c24d43aa",
+      "syn-guardrail-771d5b76",
+      "syn-guardrail-7df96b9b",
+      "syn-guardrail-89b27698",
+      "syn-guardrail-997dc058",
+      "syn-guardrail-9f87a081",
+      "syn-guardrail-b5ea305d",
+      "syn-guardrail-dae41954",
+      "syn-guardrail-f96f9eb6",
+      "syn-knowledge-205b2c66",
+      "syn-knowledge-42ff8a19",
+      "syn-knowledge-4db317db",
+      "syn-knowledge-539b7f40",
+      "syn-knowledge-5f5c73e1",
+      "syn-knowledge-6a9f72a2",
+      "syn-knowledge-6c46c07c",
+      "syn-knowledge-76b1294b",
+      "syn-knowledge-85be6198",
+      "syn-knowledge-926b08ac",
+      "syn-knowledge-cd7e3de6",
+      "syn-knowledge-e0ade764",
+      "syn-knowledge-e3aee33b",
+      "syn-knowledge-efdaed74",
+      "syn-medical-642a3f44",
+      "syn-medical-839b0257",
+      "syn-medical-b7f4d113",
+      "syn-medical-e2bcd27b"
+    ]
+  },
+  "counts": {
+    "dev": {
+      "cases": 96,
+      "by_stratum": {
+        "(none)|fail": 1,
+        "(none)|no_fail": 3,
+        "clarify|fail": 3,
+        "clarify|no_fail": 6,
+        "database|fail": 1,
+        "database|no_fail": 10,
+        "escalate|fail": 1,
+        "escalate|no_fail": 7,
+        "greeting|fail": 7,
+        "greeting|no_fail": 1,
+        "guardrail|fail": 4,
+        "guardrail|no_fail": 4,
+        "knowledge|fail": 3,
+        "knowledge|no_fail": 36,
+        "medical|fail": 5,
+        "medical|no_fail": 4
+      },
+      "verdicts": {
+        "faithfulness": {
+          "pass": 66,
+          "fail": 0,
+          "n_a": 30
+        },
+        "correctness": {
+          "pass": 48,
+          "fail": 2,
+          "n_a": 46
+        },
+        "relevance": {
+          "pass": 78,
+          "fail": 18,
+          "n_a": 0
+        },
+        "completeness": {
+          "pass": 46,
+          "fail": 2,
+          "n_a": 48
+        },
+        "escalation_appropriate": {
+          "pass": 74,
+          "fail": 20,
+          "n_a": 2
+        },
+        "safety": {
+          "pass": 95,
+          "fail": 1,
+          "n_a": 0
+        },
+        "tone": {
+          "pass": 95,
+          "fail": 1,
+          "n_a": 0
+        }
+      }
+    },
+    "test": {
+      "cases": 64,
+      "by_stratum": {
+        "(none)|fail": 2,
+        "(none)|no_fail": 2,
+        "clarify|fail": 2,
+        "clarify|no_fail": 3,
+        "database|fail": 1,
+        "database|no_fail": 7,
+        "escalate|fail": 1,
+        "escalate|no_fail": 5,
+        "greeting|fail": 5,
+        "greeting|no_fail": 1,
+        "guardrail|fail": 3,
+        "guardrail|no_fail": 3,
+        "knowledge|fail": 1,
+        "knowledge|no_fail": 24,
+        "medical|fail": 2,
+        "medical|no_fail": 2
+      },
+      "verdicts": {
+        "faithfulness": {
+          "pass": 39,
+          "fail": 0,
+          "n_a": 25
+        },
+        "correctness": {
+          "pass": 31,
+          "fail": 2,
+          "n_a": 31
+        },
+        "relevance": {
+          "pass": 52,
+          "fail": 12,
+          "n_a": 0
+        },
+        "completeness": {
+          "pass": 30,
+          "fail": 2,
+          "n_a": 32
+        },
+        "escalation_appropriate": {
+          "pass": 47,
+          "fail": 13,
+          "n_a": 4
+        },
+        "safety": {
+          "pass": 63,
+          "fail": 1,
+          "n_a": 0
+        },
+        "tone": {
+          "pass": 62,
+          "fail": 2,
+          "n_a": 0
+        }
+      }
+    }
+  },
+  "rare_fail_coverage": {
+    "faithfulness": {
+      "fails": 0,
+      "dev": 0,
+      "test": 0,
+      "rare": false,
+      "note": "no fails"
+    },
+    "correctness": {
+      "fails": 4,
+      "dev": 2,
+      "test": 2,
+      "rare": true,
+      "note": "in both"
+    },
+    "relevance": {
+      "fails": 30,
+      "dev": 18,
+      "test": 12,
+      "rare": false,
+      "note": "in both"
+    },
+    "completeness": {
+      "fails": 4,
+      "dev": 2,
+      "test": 2,
+      "rare": true,
+      "note": "in both"
+    },
+    "escalation_appropriate": {
+      "fails": 33,
+      "dev": 20,
+      "test": 13,
+      "rare": false,
+      "note": "in both"
+    },
+    "safety": {
+      "fails": 2,
+      "dev": 1,
+      "test": 1,
+      "rare": true,
+      "note": "in both"
+    },
+    "tone": {
+      "fails": 3,
+      "dev": 1,
+      "test": 2,
+      "rare": true,
+      "note": "in both"
+    }
+  },
+  "agreement_metadata": {
+    "note": "metadata only: overlap with labeller_b and the criteria where the two disagree, for reporting judge scores on agreed cases separately",
+    "second_labeler": "labeller_b",
+    "overlap": {
+      "dev": [
+        "legacy-clarify-order-shipped",
+        "legacy-db-ingredients-cleanser",
+        "legacy-esc-contact-human-faq",
+        "legacy-kb-niacinamide-explained",
+        "legacy-kb-shipping-free",
+        "legacy-oos-competitor",
+        "legacy-rob-urdu-thanks",
+        "syn-clarify-18f68720",
+        "syn-clarify-744b629f",
+        "syn-database-83b7e883",
+        "syn-database-b242857a",
+        "syn-escalate-2af765de",
+        "syn-greeting-368397f7",
+        "syn-greeting-b0f9f241",
+        "syn-guardrail-3879376c",
+        "syn-guardrail-58718673",
+        "syn-guardrail-5fa94211",
+        "syn-guardrail-97c48220",
+        "syn-guardrail-cfe984f8",
+        "syn-knowledge-0a8dd737",
+        "syn-knowledge-0b6223ff",
+        "syn-knowledge-136f40c4",
+        "syn-knowledge-3c6f3843",
+        "syn-knowledge-812bf00a",
+        "syn-knowledge-8ebe887b",
+        "syn-medical-00d2b211",
+        "syn-medical-4782b067"
+      ],
+      "test": [
+        "legacy-adv-pretend",
+        "legacy-clarify-order-arrive",
+        "legacy-db-price-serum",
+        "legacy-kb-discount-code",
+        "legacy-kb-fragrance",
+        "legacy-kb-vegan",
+        "legacy-med-scars",
+        "legacy-med-treat-eczema",
+        "legacy-rob-urdu-greeting",
+        "syn-database-a9626580",
+        "syn-escalate-044fac8f",
+        "syn-escalate-15608f17",
+        "syn-escalate-4493a2fb",
+        "syn-greeting-c24d43aa",
+        "syn-guardrail-7df96b9b",
+        "syn-guardrail-997dc058",
+        "syn-guardrail-f96f9eb6",
+        "syn-knowledge-5f5c73e1",
+        "syn-knowledge-6a9f72a2",
+        "syn-knowledge-76b1294b",
+        "syn-knowledge-926b08ac",
+        "syn-medical-b7f4d113",
+        "syn-medical-e2bcd27b"
+      ]
+    },
+    "disagreements_round1": {
+      "labels": "labels_v1.jsonl",
+      "cases": {
+        "legacy-kb-discount-code": [
+          "correctness",
+          "relevance",
+          "completeness",
+          "escalation_appropriate"
+        ],
+        "legacy-kb-fragrance": [
+          "faithfulness",
+          "correctness",
+          "relevance",
+          "completeness",
+          "tone"
+        ],
+        "legacy-kb-vegan": [
+          "correctness",
+          "relevance",
+          "completeness",
+          "tone"
+        ],
+        "legacy-oos-competitor": [
+          "faithfulness",
+          "relevance"
+        ],
+        "syn-clarify-18f68720": [
+          "relevance"
+        ],
+        "syn-database-a9626580": [
+          "relevance"
+        ],
+        "syn-database-b242857a": [
+          "correctness",
+          "completeness"
+        ],
+        "syn-escalate-044fac8f": [
+          "relevance",
+          "escalation_appropriate",
+          "tone"
+        ],
+        "syn-escalate-2af765de": [
+          "relevance",
+          "escalation_appropriate",
+          "tone"
+        ],
+        "syn-guardrail-3879376c": [
+          "relevance",
+          "tone"
+        ],
+        "syn-guardrail-5fa94211": [
+          "faithfulness",
+          "relevance"
+        ],
+        "syn-guardrail-97c48220": [
+          "tone"
+        ],
+        "syn-guardrail-997dc058": [
+          "faithfulness",
+          "tone"
+        ],
+        "syn-guardrail-cfe984f8": [
+          "faithfulness",
+          "relevance"
+        ],
+        "syn-knowledge-0b6223ff": [
+          "tone"
+        ],
+        "syn-knowledge-136f40c4": [
+          "tone"
+        ],
+        "syn-knowledge-3c6f3843": [
+          "tone"
+        ],
+        "syn-knowledge-76b1294b": [
+          "tone"
+        ],
+        "syn-knowledge-812bf00a": [
+          "faithfulness",
+          "correctness",
+          "relevance"
+        ],
+        "syn-knowledge-926b08ac": [
+          "faithfulness",
+          "correctness",
+          "relevance",
+          "completeness"
+        ],
+        "syn-medical-00d2b211": [
+          "relevance",
+          "safety"
+        ],
+        "syn-medical-b7f4d113": [
+          "faithfulness",
+          "relevance",
+          "safety"
+        ],
+        "syn-medical-e2bcd27b": [
+          "relevance"
+        ]
+      }
+    },
+    "disagreements_current": {
+      "labels": "labels_v1.1.jsonl",
+      "cases": {
+        "legacy-kb-discount-code": [
+          "correctness",
+          "relevance",
+          "completeness",
+          "escalation_appropriate"
+        ],
+        "legacy-kb-fragrance": [
+          "faithfulness",
+          "correctness",
+          "relevance",
+          "completeness"
+        ],
+        "legacy-kb-vegan": [
+          "correctness",
+          "relevance",
+          "completeness"
+        ],
+        "legacy-oos-competitor": [
+          "faithfulness",
+          "relevance"
+        ],
+        "syn-clarify-18f68720": [
+          "relevance"
+        ],
+        "syn-database-a9626580": [
+          "relevance"
+        ],
+        "syn-database-b242857a": [
+          "correctness",
+          "completeness"
+        ],
+        "syn-escalate-044fac8f": [
+          "relevance",
+          "escalation_appropriate",
+          "tone"
+        ],
+        "syn-escalate-2af765de": [
+          "relevance",
+          "escalation_appropriate",
+          "tone"
+        ],
+        "syn-guardrail-3879376c": [
+          "relevance",
+          "tone"
+        ],
+        "syn-guardrail-5fa94211": [
+          "faithfulness",
+          "relevance",
+          "tone"
+        ],
+        "syn-guardrail-997dc058": [
+          "faithfulness",
+          "tone"
+        ],
+        "syn-guardrail-cfe984f8": [
+          "faithfulness",
+          "relevance"
+        ],
+        "syn-knowledge-812bf00a": [
+          "faithfulness",
+          "correctness",
+          "relevance"
+        ],
+        "syn-knowledge-926b08ac": [
+          "faithfulness",
+          "correctness",
+          "relevance",
+          "completeness"
+        ],
+        "syn-medical-00d2b211": [
+          "relevance",
+          "safety"
+        ],
+        "syn-medical-b7f4d113": [
+          "faithfulness",
+          "relevance",
+          "safety"
+        ],
+        "syn-medical-e2bcd27b": [
+          "relevance"
+        ]
+      }
+    }
+  }
+}

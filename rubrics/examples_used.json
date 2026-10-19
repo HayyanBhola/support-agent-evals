@@ -1,0 +1,125 @@
+{
+  "run_id": "20261013-191847-f23b",
+  "dataset": "datasets/golden_v1.2.jsonl",
+  "todo": "Day 13: exclude every case_id below from the judge test split, so the judges are never tested on their own rubric examples.",
+  "case_ids": [
+    "bug-greeting-hi-again",
+    "legacy-adv-fake-price",
+    "legacy-esc-human",
+    "legacy-esc-safety",
+    "legacy-greeting",
+    "legacy-greeting-thanks",
+    "syn-clarify-370b18c6",
+    "syn-database-1b95b439",
+    "syn-database-b855ce36",
+    "syn-escalate-8366bd0b",
+    "syn-escalate-c8fb6bfc",
+    "syn-escalate-e0c70db0",
+    "syn-escalate-f2fe6cb5",
+    "syn-greeting-224f92f6",
+    "syn-greeting-41337e54",
+    "syn-guardrail-eacb8390",
+    "syn-knowledge-005ebef6",
+    "syn-knowledge-0b5a5bc7",
+    "syn-knowledge-1b131a99",
+    "syn-knowledge-1dc7db41",
+    "syn-knowledge-258e4a54",
+    "syn-knowledge-340c25f6",
+    "syn-knowledge-726eea6d",
+    "syn-knowledge-7cd723a5",
+    "syn-knowledge-8450573d",
+    "syn-knowledge-b3e584f1",
+    "syn-knowledge-d6a153b3",
+    "syn-knowledge-e487d16b",
+    "syn-medical-3778c37a",
+    "syn-medical-6f3ffce5",
+    "syn-medical-d1babd93",
+    "syn-out-of-scope-bb22494d",
+    "syn-out-of-scope-fbbd3086"
+  ],
+  "by_criterion": {
+    "faithfulness": {
+      "pass": [
+        "legacy-adv-fake-price",
+        "syn-knowledge-0b5a5bc7",
+        "legacy-esc-human"
+      ],
+      "fail": [
+        "syn-escalate-c8fb6bfc",
+        "syn-escalate-e0c70db0"
+      ]
+    },
+    "correctness": {
+      "pass": [
+        "syn-guardrail-eacb8390",
+        "syn-database-b855ce36",
+        "syn-knowledge-0b5a5bc7"
+      ],
+      "fail": [
+        "syn-database-1b95b439",
+        "syn-knowledge-258e4a54",
+        "syn-knowledge-340c25f6"
+      ]
+    },
+    "relevance": {
+      "pass": [
+        "syn-clarify-370b18c6",
+        "syn-knowledge-8450573d",
+        "legacy-greeting-thanks"
+      ],
+      "fail": [
+        "syn-knowledge-726eea6d",
+        "syn-escalate-f2fe6cb5",
+        "syn-out-of-scope-fbbd3086"
+      ]
+    },
+    "completeness": {
+      "pass": [
+        "syn-knowledge-005ebef6",
+        "syn-knowledge-e487d16b",
+        "syn-knowledge-7cd723a5"
+      ],
+      "fail": [
+        "syn-knowledge-1b131a99",
+        "syn-knowledge-1dc7db41",
+        "syn-knowledge-d6a153b3"
+      ]
+    },
+    "escalation_appropriate": {
+      "pass": [
+        "legacy-esc-safety",
+        "syn-guardrail-eacb8390",
+        "syn-database-b855ce36"
+      ],
+      "fail": [
+        "bug-greeting-hi-again",
+        "syn-escalate-c8fb6bfc",
+        "syn-out-of-scope-bb22494d"
+      ]
+    },
+    "safety": {
+      "pass": [
+        "syn-greeting-41337e54",
+        "syn-medical-d1babd93",
+        "syn-greeting-224f92f6"
+      ],
+      "fail": [
+        "syn-database-1b95b439",
+        "syn-medical-6f3ffce5",
+        "syn-medical-3778c37a"
+      ]
+    },
+    "tone": {
+      "pass": [
+        "legacy-greeting",
+        "legacy-esc-safety",
+        "syn-database-b855ce36",
+        "syn-knowledge-b3e584f1"
+      ],
+      "fail": [
+        "syn-escalate-e0c70db0",
+        "syn-escalate-8366bd0b"
+      ]
+    }
+  }
+}

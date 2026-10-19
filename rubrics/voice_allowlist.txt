@@ -1,0 +1,9 @@
+# Allowed phrases for the voice_third_person rule (evalkit.metrics.voice), one per line,
+# case-insensitive. Each is removed from a reply before the third-person patterns run.
+# Not part of the rubric_hash. Add a phrase only for a real false positive, with a reason.
+
+i'm the glowcare assistant   # first person: the greeting introduces itself
+i am the glowcare assistant  # same, unabbreviated
+customer support             # a team name, not talking about the customer
+customer service             # same
+customer care                # same

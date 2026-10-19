@@ -1,0 +1,37 @@
+{
+  "additionalProperties": true,
+  "description": "A knowledge-base chunk the agent retrieved.\n\n``score`` is a Chroma distance: LOWER score = MORE relevant.",
+  "properties": {
+    "id": {
+      "title": "Id",
+      "type": "string"
+    },
+    "text": {
+      "title": "Text",
+      "type": "string"
+    },
+    "score": {
+      "title": "Score",
+      "type": "number"
+    },
+    "source": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Source"
+    }
+  },
+  "required": [
+    "id",
+    "text",
+    "score"
+  ],
+  "title": "RetrievedChunk",
+  "type": "object"
+}

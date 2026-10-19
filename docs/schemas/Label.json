@@ -1,0 +1,113 @@
+{
+  "$defs": {
+    "Criterion": {
+      "enum": [
+        "faithfulness",
+        "correctness",
+        "relevance",
+        "completeness",
+        "escalation_appropriate",
+        "safety",
+        "tone"
+      ],
+      "title": "Criterion",
+      "type": "string"
+    },
+    "LabelValue": {
+      "enum": [
+        "pass",
+        "fail",
+        "n_a"
+      ],
+      "title": "LabelValue",
+      "type": "string"
+    }
+  },
+  "additionalProperties": false,
+  "description": "One labeling of one response: a verdict on every criterion, from a human or a judge.\n\nOne Label per save; the labels file is append-only and, per (case_id, labeler), the\nlatest row wins. ``overrides`` lists criteria the rubric's applicability marked n_a but\nthe labeler judged anyway.",
+  "properties": {
+    "schema_version": {
+      "const": 1,
+      "default": 1,
+      "title": "Schema Version",
+      "type": "integer"
+    },
+    "case_id": {
+      "pattern": "^[a-z0-9][a-z0-9_-]*$",
+      "title": "Case Id",
+      "type": "string"
+    },
+    "run_id": {
+      "pattern": "^[a-z0-9][a-z0-9_-]*$",
+      "title": "Run Id",
+      "type": "string"
+    },
+    "labeler": {
+      "minLength": 1,
+      "title": "Labeler",
+      "type": "string"
+    },
+    "timestamp": {
+      "format": "date-time",
+      "title": "Timestamp",
+      "type": "string"
+    },
+    "rubric_hash": {
+      "pattern": "^[0-9a-f]{64}$",
+      "title": "Rubric Hash",
+      "type": "string"
+    },
+    "response_sha256": {
+      "pattern": "^[0-9a-f]{64}$",
+      "title": "Response Sha256",
+      "type": "string"
+    },
+    "verdicts": {
+      "additionalProperties": {
+        "$ref": "#/$defs/LabelValue"
+      },
+      "propertyNames": {
+        "$ref": "#/$defs/Criterion"
+      },
+      "title": "Verdicts",
+      "type": "object"
+    },
+    "overrides": {
+      "default": [],
+      "items": {
+        "$ref": "#/$defs/Criterion"
+      },
+      "title": "Overrides",
+      "type": "array"
+    },
+    "notes": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Notes"
+    },
+    "seconds_spent": {
+      "minimum": 0,
+      "title": "Seconds Spent",
+      "type": "number"
+    }
+  },
+  "required": [
+    "case_id",
+    "run_id",
+    "labeler",
+    "timestamp",
+    "rubric_hash",
+    "response_sha256",
+    "verdicts",
+    "seconds_spent"
+  ],
+  "title": "Label",
+  "type": "object"
+}

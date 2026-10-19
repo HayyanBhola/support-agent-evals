@@ -1,0 +1,229 @@
+{
+  "$defs": {
+    "CaseSource": {
+      "enum": [
+        "legacy",
+        "synthetic",
+        "human",
+        "production"
+      ],
+      "title": "CaseSource",
+      "type": "string"
+    },
+    "Difficulty": {
+      "enum": [
+        "easy",
+        "medium",
+        "hard"
+      ],
+      "title": "Difficulty",
+      "type": "string"
+    },
+    "Route": {
+      "enum": [
+        "escalate",
+        "guardrail",
+        "medical",
+        "greeting",
+        "clarify",
+        "database",
+        "knowledge"
+      ],
+      "title": "Route",
+      "type": "string"
+    },
+    "Turn": {
+      "additionalProperties": false,
+      "description": "One prior message in a multi-turn case.",
+      "properties": {
+        "role": {
+          "enum": [
+            "user",
+            "assistant"
+          ],
+          "title": "Role",
+          "type": "string"
+        },
+        "content": {
+          "minLength": 1,
+          "title": "Content",
+          "type": "string"
+        }
+      },
+      "required": [
+        "role",
+        "content"
+      ],
+      "title": "Turn",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "description": "One evaluation case: a question plus everything we expect of the answer.",
+  "properties": {
+    "schema_version": {
+      "const": 1,
+      "default": 1,
+      "title": "Schema Version",
+      "type": "integer"
+    },
+    "id": {
+      "pattern": "^[a-z0-9][a-z0-9_-]*$",
+      "title": "Id",
+      "type": "string"
+    },
+    "question": {
+      "minLength": 1,
+      "title": "Question",
+      "type": "string"
+    },
+    "category": {
+      "pattern": "^[a-z0-9][a-z0-9_-]*$",
+      "title": "Category",
+      "type": "string"
+    },
+    "expected_route": {
+      "anyOf": [
+        {
+          "$ref": "#/$defs/Route"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "should_escalate": {
+      "anyOf": [
+        {
+          "type": "boolean"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Should Escalate"
+    },
+    "history": {
+      "default": [],
+      "items": {
+        "$ref": "#/$defs/Turn"
+      },
+      "title": "History",
+      "type": "array"
+    },
+    "reference_answer": {
+      "anyOf": [
+        {
+          "minLength": 1,
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Reference Answer"
+    },
+    "gold_context_ids": {
+      "default": [],
+      "items": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "title": "Gold Context Ids",
+      "type": "array"
+    },
+    "gold_db_facts": {
+      "additionalProperties": {
+        "anyOf": [
+          {
+            "type": "string"
+          },
+          {
+            "type": "boolean"
+          },
+          {
+            "type": "integer"
+          },
+          {
+            "type": "number"
+          },
+          {
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          }
+        ]
+      },
+      "default": {},
+      "propertyNames": {
+        "minLength": 1
+      },
+      "title": "Gold Db Facts",
+      "type": "object"
+    },
+    "must_include": {
+      "default": [],
+      "items": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "title": "Must Include",
+      "type": "array"
+    },
+    "must_include_any": {
+      "default": [],
+      "items": {
+        "items": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "minItems": 1,
+        "type": "array"
+      },
+      "title": "Must Include Any",
+      "type": "array"
+    },
+    "must_not_include": {
+      "default": [],
+      "items": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "title": "Must Not Include",
+      "type": "array"
+    },
+    "safety_critical": {
+      "default": false,
+      "title": "Safety Critical",
+      "type": "boolean"
+    },
+    "difficulty": {
+      "$ref": "#/$defs/Difficulty",
+      "default": "medium"
+    },
+    "source": {
+      "$ref": "#/$defs/CaseSource"
+    },
+    "tags": {
+      "default": [],
+      "items": {
+        "pattern": "^[a-z0-9][a-z0-9_-]*$",
+        "type": "string"
+      },
+      "title": "Tags",
+      "type": "array"
+    }
+  },
+  "required": [
+    "id",
+    "question",
+    "category",
+    "expected_route",
+    "source"
+  ],
+  "title": "TestCase",
+  "type": "object"
+}

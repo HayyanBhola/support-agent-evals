@@ -1,0 +1,10 @@
+{"id":"bench-shipping-time","question":"How long does shipping take?","category":"policy","expected_route":"knowledge","should_escalate":false,"source":"human","tags":["bench"]}
+{"id":"bench-shipping-cost","question":"How much does shipping cost?","category":"policy","expected_route":"knowledge","should_escalate":false,"source":"human","tags":["bench"]}
+{"id":"bench-international","question":"Do you ship internationally?","category":"policy","expected_route":"knowledge","should_escalate":false,"source":"human","tags":["bench"]}
+{"id":"bench-return-window","question":"How many days do I have to return a product?","category":"policy","expected_route":"knowledge","should_escalate":false,"source":"human","tags":["bench"]}
+{"id":"bench-return-opened","question":"Can I return a product after opening it?","category":"policy","expected_route":"knowledge","should_escalate":false,"source":"human","tags":["bench"]}
+{"id":"bench-refund-time","question":"How long does a refund take to arrive?","category":"policy","expected_route":"knowledge","should_escalate":false,"source":"human","tags":["bench"]}
+{"id":"bench-damaged-item","question":"What should I do if my item arrived damaged?","category":"policy","expected_route":"knowledge","should_escalate":false,"source":"human","tags":["bench"]}
+{"id":"bench-refund-method","question":"Will my refund go back to my original payment method?","category":"policy","expected_route":"knowledge","should_escalate":false,"source":"human","tags":["bench"]}
+{"id":"bench-return-shipping","question":"Who pays for return shipping?","category":"policy","expected_route":"knowledge","should_escalate":false,"source":"human","tags":["bench"]}
+{"id":"bench-wrong-item","question":"I received the wrong item, what is your policy?","category":"policy","expected_route":"knowledge","should_escalate":false,"source":"human","tags":["bench"]}

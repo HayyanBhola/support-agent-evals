@@ -1,0 +1,33 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "total": {
+      "minimum": 0,
+      "title": "Total",
+      "type": "integer"
+    },
+    "ok": {
+      "minimum": 0,
+      "title": "Ok",
+      "type": "integer"
+    },
+    "failed": {
+      "minimum": 0,
+      "title": "Failed",
+      "type": "integer"
+    },
+    "cache_hits": {
+      "minimum": 0,
+      "title": "Cache Hits",
+      "type": "integer"
+    }
+  },
+  "required": [
+    "total",
+    "ok",
+    "failed",
+    "cache_hits"
+  ],
+  "title": "RunCounts",
+  "type": "object"
+}

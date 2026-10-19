@@ -1,0 +1,72 @@
+{
+  "ok": true,
+  "reply": "You can return opened products only if you experienced an adverse reaction or if the item arrived damaged or defective. In those specific cases, please contact support with details before initiating the return.",
+  "conversation_id": null,
+  "new_chat": false,
+  "route": "knowledge",
+  "source": "knowledge_base",
+  "answer_type": "llm",
+  "escalated": false,
+  "escalation": null,
+  "memory": null,
+  "request_id": "42378bf8-83ca-47ce-b335-91477e6cd86c",
+  "eval_mode": true,
+  "model": "gemini/gemini-3.1-flash-lite",
+  "latency_ms": 111719.6,
+  "reason": "general question -> knowledge base",
+  "intents": [],
+  "details": {
+    "question": "Can I return a product after opening it?",
+    "chunks_used": [
+      {
+        "id": "return_policy.md-1",
+        "text": "GlowCare Return Policy > Condition for Returns\n- Unopened products in original packaging: eligible for full return.\n- Opened or used products: eligible for return ONLY if the customer experienced an adverse reaction or the product arrived damaged/defective. In these cases, contact support with details before returning.\n- Products without proof of purchase (order number or receipt) cannot be returned.",
+        "source": "return_policy.md",
+        "section": "GlowCare Return Policy > Condition for Returns",
+        "distance": 0.3984
+      },
+      {
+        "id": "return_policy.md-0",
+        "text": "GlowCare Return Policy > Return Window\nProducts may be returned within 30 days of delivery.",
+        "source": "return_policy.md",
+        "section": "GlowCare Return Policy > Return Window",
+        "distance": 0.5072
+      },
+      {
+        "id": "return_policy.md-2",
+        "text": "GlowCare Return Policy > Non-Returnable Items\nSale/clearance items marked \"final sale\" at time of purchase are not eligible for return.",
+        "source": "return_policy.md",
+        "section": "GlowCare Return Policy > Non-Returnable Items",
+        "distance": 0.5177
+      }
+    ],
+    "prompt_sent_to_llm": "Knowledge base excerpts (some may be irrelevant):\n\n[Chunk 1 | source: return_policy.md]\nGlowCare Return Policy > Condition for Returns\n- Unopened products in original packaging: eligible for full return.\n- Opened or used products: eligible for return ONLY if the customer experienced an adverse reaction or the product arrived damaged/defective. In these cases, contact support with details before returning.\n- Products without proof of purchase (order number or receipt) cannot be returned.\n\n[Chunk 2 | source: return_policy.md]\nGlowCare Return Policy > Return Window\nProducts may be returned within 30 days of delivery.\n\n[Chunk 3 | source: return_policy.md]\nGlowCare Return Policy > Non-Returnable Items\nSale/clearance items marked \"final sale\" at time of purchase are not eligible for return.\n\nInstructions:\n1. Use only the excerpts that contain the answer to the customer's question. An excerpt can answer a question without using the customer's exact words (e.g. a rule about which countries we ship to answers \"do you sell in France?\"). Ignore excerpts about other topics.\n2. Answer in 1-3 plain sentences using only facts from those excerpts. No greeting, no preamble, no dialogue, no advice that isn't in the excerpts.\n3. Only say a product contains an ingredient or has a feature if an excerpt about THAT product says so. The Ingredients Guide describes ingredients used across all products — it never says which product contains them.\n4. Only if NONE of the excerpts contain the answer, reply with exactly: \"I'm sorry, I don't have that information. A GlowCare team member can help you further.\"\n\nCustomer question: Can I return a product after opening it?\nAnswer:",
+    "llm_answer": "You can return opened products only if you experienced an adverse reaction or if the item arrived damaged or defective. In those specific cases, please contact support with details before initiating the return.",
+    "problems": [],
+    "answer": "You can return opened products only if you experienced an adverse reaction or if the item arrived damaged or defective. In those specific cases, please contact support with details before initiating the return.",
+    "answer_type": "llm",
+    "llm_error": null
+  },
+  "retrieved_chunks": [
+    {
+      "id": "return_policy.md-1",
+      "text": "GlowCare Return Policy > Condition for Returns\n- Unopened products in original packaging: eligible for full return.\n- Opened or used products: eligible for return ONLY if the customer experienced an adverse reaction or the product arrived damaged/defective. In these cases, contact support with details before returning.\n- Products without proof of purchase (order number or receipt) cannot be returned.",
+      "score": 0.3984,
+      "source": "return_policy.md"
+    },
+    {
+      "id": "return_policy.md-0",
+      "text": "GlowCare Return Policy > Return Window\nProducts may be returned within 30 days of delivery.",
+      "score": 0.5072,
+      "source": "return_policy.md"
+    },
+    {
+      "id": "return_policy.md-2",
+      "text": "GlowCare Return Policy > Non-Returnable Items\nSale/clearance items marked \"final sale\" at time of purchase are not eligible for return.",
+      "score": 0.5177,
+      "source": "return_policy.md"
+    }
+  ],
+  "prompt_tokens": 930,
+  "completion_tokens": 36
+}

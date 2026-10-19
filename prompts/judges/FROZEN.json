@@ -1,0 +1,121 @@
+{
+  "note": "Judge prompts frozen on Day 17 after the v1-v3 rounds on dev: no more tuning on dev (overfitting). Evaluated once on the locked test split on Day 19 (reports/judges/FINAL_test_v1.md): the test split is USED (test_split_used), so any prompt change needs a new test set.",
+  "primary_judge": "gpt-5-mini",
+  "primary_judge_note": "OpenAI gpt-5-mini is the primary judge since Day 18. OpenAI also generated the synthetic test cases (Day 5); see reports/judges/bias_by_source_dev.md.",
+  "cross_family_check": {
+    "model": "qwen/qwen3.8-27b",
+    "scope": "relevance only: v1 (96 dev), v2 (78 dev, cached), v3 (9 dev)",
+    "why_partial": "dropped for Groq free-tier rate limits (200k tokens/day), not quality"
+  },
+  "criteria": {
+    "relevance": {
+      "version": "v3",
+      "file": "relevance_v3.md",
+      "prompt_sha256": "6c578f4fad6d2ba4785a6387b3565b00b84c7deab57dea077839075245af8291",
+      "rubric_hash": "1332a8be2395ea1d0ced89de2c1680ba6679146430c36ef6f0d76ba37038d6b8",
+      "input_fields": [
+        "question",
+        "history",
+        "reply",
+        "route",
+        "answer_type",
+        "escalated",
+        "answer_available (3-valued)"
+      ],
+      "judge_skips": null
+    },
+    "completeness": {
+      "version": "v3",
+      "file": "completeness_v3.md",
+      "prompt_sha256": "5c37709768a53a59e9a4198a2c20b7b2f6881ea36323059bb735dbe4e930e11b",
+      "rubric_hash": "1332a8be2395ea1d0ced89de2c1680ba6679146430c36ef6f0d76ba37038d6b8",
+      "input_fields": [
+        "question",
+        "history",
+        "reply",
+        "route",
+        "answer_type",
+        "escalated",
+        "answer_available (3-valued)"
+      ],
+      "judge_skips": null
+    },
+    "safety": {
+      "version": "v3",
+      "file": "safety_v3.md",
+      "prompt_sha256": "4869d781ad87794a7b1ca69b3f66747ab125ff96b6d547a00bd2b9d5ae98c908",
+      "rubric_hash": "1332a8be2395ea1d0ced89de2c1680ba6679146430c36ef6f0d76ba37038d6b8",
+      "input_fields": [
+        "question",
+        "history",
+        "reply",
+        "route",
+        "answer_type",
+        "escalated",
+        "db_facts",
+        "retrieved_chunks"
+      ],
+      "judge_skips": null
+    },
+    "tone": {
+      "version": "v2",
+      "file": "tone_v2.md",
+      "prompt_sha256": "17b4832b780add4723306ec609587147e0549170af4d306967544c74ae9ccd5e",
+      "rubric_hash": "1332a8be2395ea1d0ced89de2c1680ba6679146430c36ef6f0d76ba37038d6b8",
+      "input_fields": [
+        "question",
+        "history",
+        "reply",
+        "route",
+        "answer_type",
+        "escalated"
+      ],
+      "judge_skips": null
+    },
+    "faithfulness": {
+      "version": "v2",
+      "file": "faithfulness_v2.md",
+      "prompt_sha256": "a47ebf15e7bce0119d58e0afa330bdef8dd73c2b1865a5d9b4d0c781741a6cc4",
+      "rubric_hash": "1332a8be2395ea1d0ced89de2c1680ba6679146430c36ef6f0d76ba37038d6b8",
+      "input_fields": [
+        "question",
+        "history",
+        "reply",
+        "route",
+        "answer_type",
+        "escalated",
+        "retrieved_chunks",
+        "db_facts"
+      ],
+      "judge_skips": null
+    },
+    "correctness": {
+      "version": "v2",
+      "file": "correctness_v2.md",
+      "prompt_sha256": "85ce000ff61d3d451bf21137e0ba5ade2a676e76f4a30bec1adecd86852ddbe1",
+      "rubric_hash": "1332a8be2395ea1d0ced89de2c1680ba6679146430c36ef6f0d76ba37038d6b8",
+      "input_fields": [
+        "question",
+        "history",
+        "reply",
+        "route",
+        "answer_type",
+        "escalated",
+        "reference_answer",
+        "gold_db_facts"
+      ],
+      "judge_skips": "no reference_answer and no gold_db_facts: n_a for the judge"
+    }
+  },
+  "test_split_used": {
+    "date": "2026-10-15T15:18:34+00:00",
+    "commit": "6e307121c31ef5cce1b7c049245dda4455f3a14e",
+    "reason": "Week 3 final frozen-judge evaluation",
+    "run_id": "20261013-191847-f23b",
+    "judge": "gpt-5-mini",
+    "report": "reports/judges/FINAL_test_v1.md",
+    "calls": 290,
+    "approx_cost_usd": 0.0907,
+    "note": "The test split is USED by the one final frozen-judge evaluation: any future judge prompt change needs a new test set."
+  }
+}

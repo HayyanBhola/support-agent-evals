@@ -1,0 +1,38 @@
+name: CI
+
+on:
+  push:
+
+jobs:
+  lint-and-test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: astral-sh/setup-uv@v6
+        with:
+          enable-cache: true
+
+      - name: Install dependencies
+        run: uv sync --locked --group labeling
+
+      - name: Ruff lint
+        run: uv run ruff check .
+
+      - name: Ruff format check
+        run: uv run ruff format --check .
+
+      - name: Mypy (strict)
+        run: uv run mypy
+
+      - name: Leakage check (no test case_id, reply or question in prompts/ or judges/)
+        run: uv run evalkit split check
+
+      - name: Pytest (live tests are skipped; no agent in CI)
+        run: uv run pytest --cov --cov-report=
+
+      - name: Coverage gate - data contracts (100%)
+        run: uv run coverage report --include="*/evalkit/schemas.py,*/evalkit/io.py,*/evalkit/hashing.py" --fail-under=100
+
+      - name: Coverage gate - runtime, importers, generation and review (90%)
+        run: uv run coverage report --include="*/evalkit/adapters/*,*/evalkit/cache.py,*/evalkit/runner.py,*/evalkit/importers/*,*/evalkit/snapshot_router.py,*/evalkit/route_report.py,*/evalkit/generation/*,*/evalkit/review/*,*/evalkit/manifest.py,*/evalkit/metrics/*,*/evalkit/rubrics.py,*/evalkit/labeling/*,*/evalkit/calibration/*,*/evalkit/stats/*,*/evalkit/judges/*,*/evalkit/synthetic/*,*/evalkit/bias/*,*/evalkit/budget.py" --fail-under=90

@@ -1,0 +1,56 @@
+{
+  "additionalProperties": true,
+  "description": "A chunk that went into the LLM prompt (``details.chunks_used``).\n\n``distance`` is a Chroma distance: LOWER = MORE relevant.",
+  "properties": {
+    "id": {
+      "title": "Id",
+      "type": "string"
+    },
+    "text": {
+      "title": "Text",
+      "type": "string"
+    },
+    "source": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Source"
+    },
+    "section": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Section"
+    },
+    "distance": {
+      "anyOf": [
+        {
+          "type": "number"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Distance"
+    }
+  },
+  "required": [
+    "id",
+    "text"
+  ],
+  "title": "ChunkUsed",
+  "type": "object"
+}
